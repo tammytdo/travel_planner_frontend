@@ -54,7 +54,6 @@ function App() {
               onChange={handleInputChange}
             />
           </Form.Group>
-
           <Form.Group controlId="select-month">
             <Form.Label>Travel Month: </Form.Label>
             <Form.Control 
