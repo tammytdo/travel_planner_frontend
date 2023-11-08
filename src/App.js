@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Button, Container, Dropdown } from "react-bootstrap";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
       "October",
       "November",
       "December",
-    ]
+    ],
   });
 
   const handleInputChange = (e) => {
@@ -52,13 +52,15 @@ function App() {
           </Form.Group>
           <Form.Group controlId="select-month">
             <Form.Label>Travel Month: </Form.Label>
-            <Form.Control 
+            <Form.Control
               as="select"
               name="month"
               value={userFormData.month}
               onChange={handleInputChange}
             >
-              <option value="" disabled>Select a month</option>
+              <option value="" disabled>
+                Select a month
+              </option>
               {userFormData.months.map((month, idx) => (
                 <option key={idx}>{month}</option>
               ))}
