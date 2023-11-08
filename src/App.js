@@ -34,11 +34,7 @@ function App() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log("Submitted city:", userFormData.city);
-    console.log("Submitted month:", userFormData.month);
   };
-
-  console.log(userFormData);
 
   return (
     <div className="App">
