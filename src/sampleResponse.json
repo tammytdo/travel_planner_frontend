@@ -1,0 +1,91 @@
+{
+  "attractions": [
+    "Seattle Glassblowing Studio: 4.9 stars",
+    "Seattle Public Library - Central Library: 4.7 stars",
+    "Chihuly Garden and Glass: 4.7 stars",
+    "Argosy Cruises - Seattle Waterfront: 4.7 stars",
+    "Sky View Observatory - Columbia Center: 4.7 stars",
+    "Fran's Chocolates - Downtown: 4.7 stars",
+    "Space Needle: 4.6 stars",
+    "Museum of Pop Culture: 4.6 stars",
+    "Frye Art Museum: 4.6 stars",
+    "Seattle Center: 4.6 stars",
+    "Smith Tower: 4.6 stars",
+    "Columbia Center: 4.6 stars",
+    "Seattle Art Museum: 4.6 stars",
+    "Olympic Sculpture Park: 4.5 stars",
+    "Waterfront Park: 4.5 stars",
+    "The Seattle Great Wheel: 4.5 stars",
+    "Occidental Square: 4.3 stars",
+    "Seattle Children's Museum: 4.3 stars",
+    "The Gum Wall: 4.2 stars",
+    "Westlake Park: 4.2 stars"
+  ],
+  "restaurants": [
+    "Metropolitan Grill: 4.6 stars",
+    "Japonessa Sushi Cocina: 4.5 stars",
+    "Washington Athletic Club: 4.5 stars",
+    "The Triple Door: 4.5 stars",
+    "Purple Cafe and Wine Bar: 4.4 stars",
+    "Starbucks: 4.4 stars",
+    "Cactus South Lake Union: 4.4 stars",
+    "Serious Pie Downtown: 4.4 stars",
+    "Kimpton Hotel Vintage Seattle: 4.3 stars",
+    "Wild Ginger: 4.3 stars",
+    "Portage Bay Cafe - South Lake Union: 4.3 stars",
+    "Elysian Capitol Hill Brewery: 4.3 stars",
+    "Garage: 4.3 stars",
+    "Elliott's Oyster House: 4.3 stars",
+    "The Crab Pot Seattle: 4.2 stars",
+    "The Cheesecake Factory: 4.2 stars",
+    "Barrio Mexican Kitchen & Bar: 4.2 stars",
+    "Buca di Beppo Italian Restaurant: 4.1 stars",
+    "TIDAL+: 4 stars",
+    "Jimmy John's: 3.8 stars"
+  ],
+  "typical_weather": "In December, Seattle experiences cool and wet weather. The average high temperature is around 46°F (8°C), while the average low temperature is around",
+  "upcoming_weather": [
+    {
+      "date": "2023-11-19",
+      "description": "Light shower rain",
+      "max_temp": 9.7,
+      "min_temp": 5.4
+    },
+    {
+      "date": "2023-11-20",
+      "description": "Broken clouds",
+      "max_temp": 8.6,
+      "min_temp": 3.4
+    },
+    {
+      "date": "2023-11-21",
+      "description": "Light shower rain",
+      "max_temp": 10.3,
+      "min_temp": 5.1
+    },
+    {
+      "date": "2023-11-22",
+      "description": "Light shower rain",
+      "max_temp": 8.8,
+      "min_temp": 6.7
+    },
+    {
+      "date": "2023-11-23",
+      "description": "Broken clouds",
+      "max_temp": 8,
+      "min_temp": 4.2
+    },
+    {
+      "date": "2023-11-24",
+      "description": "Broken clouds",
+      "max_temp": 7.2,
+      "min_temp": 3
+    },
+    {
+      "date": "2023-11-25",
+      "description": "Few clouds",
+      "max_temp": 7.7,
+      "min_temp": 2.6
+    }
+  ]
+}
