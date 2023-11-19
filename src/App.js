@@ -1,6 +1,7 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
-import { Form, Button, Container, Dropdown } from "react-bootstrap";
+import React, { useState } from "react";
+import { Form, Button, Container } from "react-bootstrap";
+import axios from "axios";
 
 function App() {
   const [userFormData, setUserFormData] = useState({
@@ -34,6 +35,24 @@ function App() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    fetchData();
+    console.log(e);
+  };
+
+  const fetchData = async () => {
+    try {
+      if (userFormData.city && userFormData.month) {
+        const apiEndpoint = `http://localhost:5000/getCityData?user_destination=${userFormData.city}&month=${userFormData.month}`;
+
+        const response = await axios.get(apiEndpoint); 
+
+        console.log(response.data);
+      } else {
+        console.error("City and month are required");
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
 
   return (
@@ -62,7 +81,9 @@ function App() {
                 Select a month
               </option>
               {userFormData.months.map((month, idx) => (
-                <option key={idx}>{month}</option>
+                <option key={idx} value={month}>
+                  {month}
+                </option>
               ))}
             </Form.Control>
           </Form.Group>
