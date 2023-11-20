@@ -1,13 +1,21 @@
 import "./App.css";
 import React, { useState } from "react";
-import { Form, Button, Container, Card } from "react-bootstrap";
 import axios from "axios";
+
 import sampleResponse from "./sampleResponse.json";
+import InputForm from "./components/InputForm/InputForm";
+import TypicalWeatherCard from "./components/Weather/TypicalWeatherCard";
+import WeatherCard from "./components/Weather/WeatherCard";
+import AttractionCard from "./components/Attractions/AttractionCard";
+import RestaurantCard from "./components/Restaurants/RestaurantCard";
 
 function App() {
+  // edit name from userFormData to cityData
   const [userFormData, setUserFormData] = useState({
-    city: "",
-    month: "",
+    // city: "",
+    // month: "",
+    city: "Seattle", // Seattle for testing
+    month: "January", // January for testing
     months: [
       "January",
       "February",
@@ -22,11 +30,16 @@ function App() {
       "November",
       "December",
     ],
+    response: {},
     errorMsg: "",
+    typicalWeather: "",
     attractions: [],
     restaurants: [],
-    typical_weather: "",
-    upcoming_weather: [],
+    upcomingWeather: [],
+    // typicalWeather: sampleResponse.typical_weather, // Sample for testing
+    // upcomingWeather: sampleResponse.upcoming_weather, // Sample for testing
+    // attractions: sampleResponse.attractions, // Sample for testing
+    // restaurants: sampleResponse.restaurants, // Sample for testing
   });
 
   const handleInputChange = (e) => {
@@ -39,12 +52,7 @@ function App() {
     });
   };
 
-  // const handleFormSubmit = (e) => {
-  //   e.preventDefault();
-  //   fetchData();
-  //   console.log(e);
-  // };
-
+  // testing
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -52,10 +60,11 @@ function App() {
         // Instead of making an actual API call, use the imported sampleResponse
         setUserFormData({
           ...userFormData,
+          response: sampleResponse,
           attractions: sampleResponse.attractions,
           restaurants: sampleResponse.restaurants,
-          typical_weather: sampleResponse.typical_weather,
-          upcoming_weather: sampleResponse.upcoming_weather,
+          typicalWeather: sampleResponse.typical_weather,
+          upcomingWeather: sampleResponse.upcoming_weather,
         });
       } else {
         console.error("City and month are required");
@@ -64,6 +73,14 @@ function App() {
       console.error("Error:", error);
     }
   };
+
+  // Live API call
+  // const handleFormSubmit = (e) => {
+  //   e.preventDefault();
+  //   fetchData();
+  // };
+
+  // Live API call
 
   // const fetchData = async () => {
   //   try {
@@ -76,8 +93,8 @@ function App() {
   //         ...userFormData,
   //         attractions: response.data.attractions,
   //         restaurants: response.data.restaurants,
-  //         typical_weather: response.data.typical_weather,
-  //         upcoming_weather: response.data.upcoming_weather,
+  //         typicalWeather: response.data.typical_weather,
+  //         upcomingWeather: response.data.upcoming_weather,
   //       });
   //     } else {
   //       console.error("City and month are required");
@@ -87,88 +104,24 @@ function App() {
   //   }
   // };
 
-  console.log("userFormData:", userFormData);
-
   return (
     <div className="App">
-      <Container>
-        <Form onSubmit={handleFormSubmit}>
-          <Form.Group controlId="user-city">
-            <Form.Label>Enter a City: </Form.Label>
-            <Form.Control
-              type="text"
-              name="city"
-              placeholder="city"
-              value={userFormData.city}
-              onChange={handleInputChange}
-            />
-          </Form.Group>
-          <Form.Group controlId="select-month">
-            <Form.Label>Travel Month: </Form.Label>
-            <Form.Control
-              as="select"
-              name="month"
-              value={userFormData.month}
-              onChange={handleInputChange}
-            >
-              <option value="" disabled>
-                Select a month
-              </option>
-              {userFormData.months.map((month, idx) => (
-                <option key={idx} value={month}>
-                  {month}
-                </option>
-              ))}
-            </Form.Control>
-          </Form.Group>
-          <Button type="submit">Search</Button>
-        </Form>
-      </Container>
+      <InputForm
+        city={userFormData.city}
+        month={userFormData.month}
+        months={userFormData.months}
+        handleInputChange={handleInputChange}
+        handleFormSubmit={handleFormSubmit}
+      />
 
-      <Container>
-        <p id='typical_weather'>{userFormData.typical_weather}</p>
-      </Container>
-
-      <Container>
-        {userFormData.upcoming_weather.map((weatherDay, idx) => (
-          <Card id='upcoming_weather' key={`weatherDay-${idx}`}>
-            <Card.Body>
-              <Card.Text>{weatherDay.date}</Card.Text>
-              <p>Min Temp: {weatherDay.min_temp}</p>
-              <p>Max Temp: {weatherDay.max_temp}</p>
-              <p>Description: {weatherDay.description}</p>
-            </Card.Body>
-          </Card>
-        ))}
-      </Container>
-
-      <Container>
-        {userFormData.attractions.map((attraction, idx) => {
-          const [attractionName, attractionRating] = attraction.split(": "); 
-          return (
-            <Card id='attractions' key={`attraction-${idx}`}>
-              <Card.Body>
-                <Card.Title>{attractionName}</Card.Title>
-                <Card.Text>{attractionRating}</Card.Text>
-              </Card.Body>
-            </Card>
-          );
-        })}
-      </Container>
-
-      <Container>
-        {userFormData.restaurants.map((restaurant, idx) => {
-          const [restaurantName, restaurantRating] = restaurant.split(": "); 
-          return (
-            <Card id='restaurants' key={`restaurant-${idx}`}>
-              <Card.Body>
-                <Card.Title>{restaurantName}</Card.Title>
-                <Card.Text>{restaurantRating}</Card.Text>
-              </Card.Body>
-            </Card>
-          );
-        })}
-      </Container>
+      {userFormData.response && (
+        <div>
+          <TypicalWeatherCard typicalWeather={userFormData.typicalWeather} />
+          <WeatherCard upcomingWeather={userFormData.upcomingWeather} />
+          <AttractionCard attractions={userFormData.attractions} />
+          <RestaurantCard restaurants={userFormData.restaurants} />
+        </div>
+      )}
     </div>
   );
 }
