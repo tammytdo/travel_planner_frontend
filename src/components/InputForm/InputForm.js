@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button, Container } from "react-bootstrap";
+import { Form, Button, Container, Dropdown } from "react-bootstrap";
 
 const InputForm = (props) => {
   return (
@@ -16,24 +16,28 @@ const InputForm = (props) => {
           />
         </Form.Group>
 
-        {/* Add a bootstrap Dropdown to the months */}
         <Form.Group controlId="select-month">
           <Form.Label>Travel Month: </Form.Label>
-          <Form.Control
-            as="select"
-            name="month"
-            defaultValue={props.month}
-            onChange={props.handleInputChange}
-          >
-            <option defaultValue="" disabled>
-              Select a month
-            </option>
-            {props.months.map((month, idx) => (
-              <option key={idx} defaultValue={month}>
-                {month}
-              </option>
-            ))}
-          </Form.Control>
+          <Dropdown>
+            <Dropdown.Toggle variant="secondary">
+              {props.month || "Select a month"}
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              {props.months.map((monthSelected, idx) => (
+                <Dropdown.Item
+                  key={`month-${idx}`}
+                  onClick={() =>
+                    props.handleInputChange({
+                      target: { name: "month", value: monthSelected },
+                    })
+                  }
+                >
+                  {monthSelected}
+                </Dropdown.Item>
+              ))}
+            </Dropdown.Menu>
+          </Dropdown>
         </Form.Group>
         <Button type="submit">Search</Button>
       </Form>
