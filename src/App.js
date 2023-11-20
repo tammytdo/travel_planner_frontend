@@ -6,14 +6,16 @@ import sampleResponse from "./sampleResponse.json";
 import InputForm from "./components/InputForm/InputForm";
 import TypicalWeatherCard from "./components/Weather/TypicalWeatherCard";
 import WeatherCard from "./components/Weather/WeatherCard";
-// import AttractionCard from './components/AttractionCards/AttractionCard';
-import RestaurantCard from './components/Restaurants/RestaurantCard';
+import AttractionCard from "./components/Attractions/AttractionCard";
+import RestaurantCard from "./components/Restaurants/RestaurantCard";
 
 function App() {
   // edit name from userFormData to cityData
   const [userFormData, setUserFormData] = useState({
-    city: "" || "Seattle", // Seattle for testing
-    month: "" || "January", // January for testing
+    // city: "",
+    // month: "",
+    city: "Seattle", // Seattle for testing
+    month: "January", // January for testing
     months: [
       "January",
       "February",
@@ -28,13 +30,16 @@ function App() {
       "November",
       "December",
     ],
+    response: {},
     errorMsg: "",
-    typicalWeather: "" || "Sample typical weater", // Sample for testing
+    typicalWeather: "",
     attractions: [],
-    // restaurants: [],
-    restaurants: sampleResponse.restaurants, // Sample for testing
-    // upcomingWeather: []
-    upcomingWeather: sampleResponse.upcoming_weather // Sample for testing
+    restaurants: [],
+    upcomingWeather: [],
+    // typicalWeather: sampleResponse.typical_weather, // Sample for testing
+    // upcomingWeather: sampleResponse.upcoming_weather, // Sample for testing
+    // attractions: sampleResponse.attractions, // Sample for testing
+    // restaurants: sampleResponse.restaurants, // Sample for testing
   });
 
   const handleInputChange = (e) => {
@@ -47,12 +52,7 @@ function App() {
     });
   };
 
-  // const handleFormSubmit = (e) => {
-  //   e.preventDefault();
-  //   fetchData();
-  //   console.log(e);
-  // };
-
+  // testing
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -60,10 +60,11 @@ function App() {
         // Instead of making an actual API call, use the imported sampleResponse
         setUserFormData({
           ...userFormData,
+          response: sampleResponse,
           attractions: sampleResponse.attractions,
           restaurants: sampleResponse.restaurants,
-          typicalWeather: sampleResponse.typicalWeather,
-          upcomingWeather: sampleResponse.upcomingWeather,
+          typicalWeather: sampleResponse.typical_weather,
+          upcomingWeather: sampleResponse.upcoming_weather,
         });
       } else {
         console.error("City and month are required");
@@ -72,6 +73,14 @@ function App() {
       console.error("Error:", error);
     }
   };
+
+  // Live API call
+  // const handleFormSubmit = (e) => {
+  //   e.preventDefault();
+  //   fetchData();
+  // };
+
+  // Live API call
 
   // const fetchData = async () => {
   //   try {
@@ -84,8 +93,8 @@ function App() {
   //         ...userFormData,
   //         attractions: response.data.attractions,
   //         restaurants: response.data.restaurants,
-  //         typicalWeather: response.data.typicalWeather,
-  //         upcomingWeather: response.data.upcomingWeather,
+  //         typicalWeather: response.data.typical_weather,
+  //         upcomingWeather: response.data.upcoming_weather,
   //       });
   //     } else {
   //       console.error("City and month are required");
@@ -95,17 +104,24 @@ function App() {
   //   }
   // };
 
-  // console.log("sampleResponse.upcoming_weather:", sampleResponse.upcoming_weather);
-
   return (
     <div className="App">
-      {/* pass props? */}
-      {/* <InputForm userFormData={userFormData} /> */}
-      <TypicalWeatherCard typicalWeather={userFormData.typicalWeather} />
-      <WeatherCard upcomingWeather={userFormData.upcomingWeather} />
+      <InputForm
+        city={userFormData.city}
+        month={userFormData.month}
+        months={userFormData.months}
+        handleInputChange={handleInputChange}
+        handleFormSubmit={handleFormSubmit}
+      />
 
-      {/* <AttractionsCard/> */}
-      <RestaurantCard restaurants={userFormData.restaurants}/>
+      {userFormData.response && (
+        <div>
+          <TypicalWeatherCard typicalWeather={userFormData.typicalWeather} />
+          <WeatherCard upcomingWeather={userFormData.upcomingWeather} />
+          <AttractionCard attractions={userFormData.attractions} />
+          <RestaurantCard restaurants={userFormData.restaurants} />
+        </div>
+      )}
     </div>
   );
 }

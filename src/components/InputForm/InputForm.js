@@ -1,33 +1,35 @@
 import React from "react";
 import { Form, Button, Container } from "react-bootstrap";
 
-const InputForm = ({ userFormData, handleFormSubmit, handleInputChange }) => {
+const InputForm = (props) => {
   return (
     <Container>
-      <Form onSubmit={handleFormSubmit}>
+      <Form onSubmit={props.handleFormSubmit}>
         <Form.Group controlId="user-city">
           <Form.Label>Enter a City: </Form.Label>
           <Form.Control
             type="text"
             name="city"
             placeholder="city"
-            value={userFormData.city}
-            onChange={handleInputChange}
+            defaultValue={props.city}
+            onChange={props.handleInputChange}
           />
         </Form.Group>
+
+        {/* Add a bootstrap Dropdown to the months */}
         <Form.Group controlId="select-month">
           <Form.Label>Travel Month: </Form.Label>
           <Form.Control
             as="select"
             name="month"
-            value={userFormData.month}
-            onChange={handleInputChange}
+            defaultValue={props.month}
+            onChange={props.handleInputChange}
           >
-            <option value="" disabled>
+            <option defaultValue="" disabled>
               Select a month
             </option>
-            {userFormData.months.map((month, idx) => (
-              <option key={idx} value={month}>
+            {props.months.map((month, idx) => (
+              <option key={idx} defaultValue={month}>
                 {month}
               </option>
             ))}

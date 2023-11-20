@@ -1,7 +1,7 @@
 import React from "react";
-import {  Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
-const WeatherDayForecast = (props) => {
+const WeatherModel = (props) => {
   return (
     <Card>
       <Card.Body>
@@ -14,4 +14,4 @@ const WeatherDayForecast = (props) => {
   );
 };
 
-export default WeatherDayForecast;
+export default WeatherModel;

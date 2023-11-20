@@ -1,17 +1,20 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import WeatherDayForecast from "./WeatherDayForecast"
+import WeatherModel from "./WeatherModel";
 
 const WeatherCard = (props) => {
   return (
-  <Container> 
-    {props.upcomingWeather.map((weatherDay, idx) => {
-      return (
-       <WeatherDayForecast index={`WeatherDayForecast-${idx}`} weatherDay={weatherDay}/>
-      );
-    })}
-  </Container>
-  )
+    <Container>
+      {props.upcomingWeather.map((weatherDay, idx) => {
+        return (
+          <WeatherModel
+            key={`WeatherDayForecast-${idx}`}
+            weatherDay={weatherDay}
+          />
+        );
+      })}
+    </Container>
+  );
 };
 
 export default WeatherCard;
