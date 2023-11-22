@@ -6,6 +6,7 @@ const AttractionModel = (props) => {
     <Card key={`attractions-${props.idx}`}>
       <Card.Body>
         <Card.Title>{props.attractionName}</Card.Title>
+        <Card.Text>{props.attractionAddress}</Card.Text>
         <Card.Text>{props.attractionRating}</Card.Text>
       </Card.Body>
     </Card>

@@ -8,10 +8,10 @@ import TypicalWeatherCard from "./components/Weather/TypicalWeatherCard";
 import WeatherCard from "./components/Weather/WeatherCard";
 import AttractionCard from "./components/Attractions/AttractionCard";
 import RestaurantCard from "./components/Restaurants/RestaurantCard";
+import Map from "./components/Map";
 
 function App() {
-  // edit name from userFormData to cityData
-  const [userFormData, setUserFormData] = useState({
+  const [cityData, setUserFormData] = useState({
     // city: "",
     // month: "",
     city: "Seattle", // Seattle for testing
@@ -45,78 +45,79 @@ function App() {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUserFormData({
-      ...userFormData,
+      ...cityData,
       [name]: value,
     });
   };
 
-  // // testing
-  // const handleFormSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     if (userFormData.city && userFormData.month) {
-  //       // Instead of making an actual API call, use the imported sampleResponse
-  //       setUserFormData({
-  //         ...userFormData,
-  //         response: sampleResponse,
-  //         attractions: sampleResponse.attractions,
-  //         restaurants: sampleResponse.restaurants,
-  //         typicalWeather: sampleResponse.typical_weather,
-  //         upcomingWeather: sampleResponse.upcoming_weather,
-  //       });
-  //     } else {
-  //       console.error("City and month are required");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error:", error);
-  //   }
-  // };
-
-  // Live API call
-  const handleFormSubmit = (e) => {
+  // testing
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    fetchData();
-  };
-
-  // Live API call
-  const fetchData = async () => {
     try {
-      if (userFormData.city && userFormData.month) {
-        const apiEndpoint = `http://localhost:5000/getCityData?user_destination=${userFormData.city}&month=${userFormData.month}`;
-
-        const response = await axios.get(apiEndpoint);
-
+      if (cityData.city && cityData.month) {
+        // Instead of making an actual API call, use the imported sampleResponse
         setUserFormData({
-          ...userFormData,
-          attractions: response.data.attractions,
-          restaurants: response.data.restaurants,
-          typicalWeather: response.data.typical_weather,
-          upcomingWeather: response.data.upcoming_weather,
+          ...cityData,
+          response: sampleResponse,
+          attractions: sampleResponse.attractions,
+          restaurants: sampleResponse.restaurants,
+          typicalWeather: sampleResponse.typical_weather,
+          upcomingWeather: sampleResponse.upcoming_weather,
         });
       } else {
         console.error("City and month are required");
       }
     } catch (error) {
-      console.error("Error fetching data:", error);
+      console.error("Error:", error);
     }
   };
+
+  // Live API call
+  // const handleFormSubmit = (e) => {
+  //   e.preventDefault();
+  //   fetchData();
+  // };
+
+  // Live API call
+  // const fetchData = async () => {
+  //   try {
+  //     if (cityData.city && cityData.month) {
+  //       const apiEndpoint = `http://localhost:5000/getCityData?user_destination=${cityData.city}&month=${cityData.month}`;
+
+  //       const response = await axios.get(apiEndpoint);
+
+  //       setUserFormData({
+  //         ...cityData,
+  //         attractions: response.data.attractions,
+  //         restaurants: response.data.restaurants,
+  //         typicalWeather: response.data.typical_weather,
+  //         upcomingWeather: response.data.upcoming_weather,
+  //       });
+  //     } else {
+  //       console.error("City and month are required");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching data:", error);
+  //   }
+  // };
 
   return (
     <div className="App">
       <InputForm
-        city={userFormData.city}
-        month={userFormData.month}
-        months={userFormData.months}
+        city={cityData.city}
+        month={cityData.month}
+        months={cityData.months}
         handleInputChange={handleInputChange}
         handleFormSubmit={handleFormSubmit}
       />
 
-      {userFormData.response && (
+      {cityData.response && (
         <div>
-          <TypicalWeatherCard typicalWeather={userFormData.typicalWeather} />
-          <WeatherCard upcomingWeather={userFormData.upcomingWeather} />
-          <AttractionCard attractions={userFormData.attractions} />
-          <RestaurantCard restaurants={userFormData.restaurants} />
+          <TypicalWeatherCard typicalWeather={cityData.typicalWeather} />
+          <WeatherCard upcomingWeather={cityData.upcomingWeather} />
+          <AttractionCard attractions={cityData.attractions} />
+          <RestaurantCard restaurants={cityData.restaurants} />
+          {/* <Map /> */}
         </div>
       )}
     </div>
