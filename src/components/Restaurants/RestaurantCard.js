@@ -6,12 +6,12 @@ const RestaurantCard = (props) => {
   return (
     <Container>
       {props.restaurants.map((restaurant, idx) => {
-        const [restaurantName, restaurantRating] = restaurant.split(": ");
         return (
           <RestaurantModel
             key={idx}
-            restaurantName={restaurantName}
-            restaurantRating={restaurantRating}
+            restaurantName={restaurant.name}
+            restaurantAddress={restaurant.address}
+            restaurantRating={restaurant.rating}
           />
         );
       })}

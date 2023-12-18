@@ -1,91 +1,334 @@
 {
   "attractions": [
-    "Seattle Glassblowing Studio: 4.9 stars",
-    "Seattle Public Library - Central Library: 4.7 stars",
-    "Chihuly Garden and Glass: 4.7 stars",
-    "Argosy Cruises - Seattle Waterfront: 4.7 stars",
-    "Sky View Observatory - Columbia Center: 4.7 stars",
-    "Fran's Chocolates - Downtown: 4.7 stars",
-    "Space Needle: 4.6 stars",
-    "Museum of Pop Culture: 4.6 stars",
-    "Frye Art Museum: 4.6 stars",
-    "Seattle Center: 4.6 stars",
-    "Smith Tower: 4.6 stars",
-    "Columbia Center: 4.6 stars",
-    "Seattle Art Museum: 4.6 stars",
-    "Olympic Sculpture Park: 4.5 stars",
-    "Waterfront Park: 4.5 stars",
-    "The Seattle Great Wheel: 4.5 stars",
-    "Occidental Square: 4.3 stars",
-    "Seattle Children's Museum: 4.3 stars",
-    "The Gum Wall: 4.2 stars",
-    "Westlake Park: 4.2 stars"
+    {
+      "address": "31 Phố Văn Miếu, Văn Miếu",
+      "lat": 21.0285587,
+      "lng": 105.8364668,
+      "name": "Nguyen Art Gallery",
+      "rating": 4.7
+    },
+    {
+      "address": "Số 128 Phố Nguyễn Khuyến, Văn Miếu",
+      "lat": 21.0287579,
+      "lng": 105.8374572,
+      "name": "Pearls Lake Pagoda",
+      "rating": 4.7
+    },
+    {
+      "address": "73 Phố Quán Sứ, Trần Hưng Đạo",
+      "lat": 21.0244934,
+      "lng": 105.8453387,
+      "name": "Chùa Quán Sứ",
+      "rating": 4.6
+    },
+    {
+      "address": "290 Phố Khâm Thiên, Thổ Quan",
+      "lat": 21.0195465,
+      "lng": 105.833658,
+      "name": "Chùa Linh Ứng",
+      "rating": 4.6
+    },
+    {
+      "address": "66 Phố Nguyễn Thái Học, Điện Biên",
+      "lat": 21.0307844,
+      "lng": 105.837084,
+      "name": "Vietnam National Fine Arts Museum",
+      "rating": 4.5
+    },
+    {
+      "address": "28A Điện Biên Phủ, Điện Biên",
+      "lat": 21.0325556,
+      "lng": 105.8398039,
+      "name": "Hanoi Flagtower",
+      "rating": 4.5
+    },
+    {
+      "address": "Hoàng Diệu, Quán Thánh",
+      "lat": 21.0367807,
+      "lng": 105.8403694,
+      "name": "Kinh Thien",
+      "rating": 4.4
+    },
+    {
+      "address": "19c Hoàng Diệu, Điện Biên",
+      "lat": 21.0352231,
+      "lng": 105.8402594,
+      "name": "Imperial Citadel of Thang Long",
+      "rating": 4.4
+    },
+    {
+      "address": "1 Phố Hoả Lò, Trần Hưng Đạo",
+      "lat": 21.0253297,
+      "lng": 105.8464781,
+      "name": "Hoa Lo Prison Relic",
+      "rating": 4.4
+    },
+    {
+      "address": "68 Ngõ 318 Đường La Thành, Chợ Dừa",
+      "lat": 21.0232337,
+      "lng": 105.8245724,
+      "name": "Chùa Thanh Nhàn",
+      "rating": 4.4
+    },
+    {
+      "address": "51 Phố Văn Miếu, Văn Miếu",
+      "lat": 21.0277942,
+      "lng": 105.8361144,
+      "name": "Shop Craft Link",
+      "rating": 4.4
+    },
+    {
+      "address": "2 Hùng Vương, Ngọc Hồ",
+      "lat": 21.0392918,
+      "lng": 105.8344762,
+      "name": "Presidential Palace",
+      "rating": 4.4
+    },
+    {
+      "address": "19 Phố Ngọc Hà, Đội Cấn",
+      "lat": 21.0355961,
+      "lng": 105.8326071,
+      "name": "Ho Chi Minh Museum",
+      "rating": 4.3
+    },
+    {
+      "address": "phố Phố Chùa Một Cột, Đội Cấn",
+      "lat": 21.0358515,
+      "lng": 105.8336203,
+      "name": "One Pillar Pagoda",
+      "rating": 4.3
+    },
+    {
+      "address": "28A Điện Biên Phủ, Điện Biên",
+      "lat": 21.0315352,
+      "lng": 105.839588,
+      "name": "Lenin Park",
+      "rating": 4.3
+    },
+    {
+      "address": "157 Phố Đội Cấn, Ngọc Hồ",
+      "lat": 21.0350244,
+      "lng": 105.8261673,
+      "name": "B52 Victory Museum",
+      "rating": 4.3
+    },
+    {
+      "address": "28A Điện Biên Phủ, Điện Biên",
+      "lat": 21.0321949,
+      "lng": 105.8402389,
+      "name": "Vietnam Military History Museum",
+      "rating": 4.2
+    },
+    {
+      "address": "91 Trần Hưng Đạo",
+      "lat": 21.0225499,
+      "lng": 105.8441781,
+      "name": "Vietnam - Soviet Friendship Palace of Culture and Labour",
+      "rating": 4.2
+    },
+    {
+      "address": "67 Phố Lý Thường Kiệt, Trần Hưng Đạo",
+      "lat": 21.0242944,
+      "lng": 105.8458167,
+      "name": "Hanoi Police Museum",
+      "rating": 4.2
+    },
+    {
+      "address": "2RHM+4M3, Gần Bến Đò Giày Cạnh Bãi Cát",
+      "lat": 21.0277644,
+      "lng": 105.8341598,
+      "name": "TTA Camping & Granden",
+      "rating": "N/A"
+    }
   ],
+  "city": "hanoi",
+  "lat": 21.0277644,
+  "lng": 105.8341598,
   "restaurants": [
-    "Metropolitan Grill: 4.6 stars",
-    "Japonessa Sushi Cocina: 4.5 stars",
-    "Washington Athletic Club: 4.5 stars",
-    "The Triple Door: 4.5 stars",
-    "Purple Cafe and Wine Bar: 4.4 stars",
-    "Starbucks: 4.4 stars",
-    "Cactus South Lake Union: 4.4 stars",
-    "Serious Pie Downtown: 4.4 stars",
-    "Kimpton Hotel Vintage Seattle: 4.3 stars",
-    "Wild Ginger: 4.3 stars",
-    "Portage Bay Cafe - South Lake Union: 4.3 stars",
-    "Elysian Capitol Hill Brewery: 4.3 stars",
-    "Garage: 4.3 stars",
-    "Elliott's Oyster House: 4.3 stars",
-    "The Crab Pot Seattle: 4.2 stars",
-    "The Cheesecake Factory: 4.2 stars",
-    "Barrio Mexican Kitchen & Bar: 4.2 stars",
-    "Buca di Beppo Italian Restaurant: 4.1 stars",
-    "TIDAL+: 4 stars",
-    "Jimmy John's: 3.8 stars"
+    {
+      "address": "73 Phố Tôn Đức Thắng, Quốc Tử Giám",
+      "lat": 21.0256724,
+      "lng": 105.8333968,
+      "name": "Le Grape Principal",
+      "rating": 4.9
+    },
+    {
+      "address": "131 Phố Nguyễn Khuyến, Văn Miếu",
+      "lat": 21.0286282,
+      "lng": 105.8368712,
+      "name": "Quán Sơn Vịt",
+      "rating": 4.9
+    },
+    {
+      "address": "84 Phố Trần Nhân Tông, Nguyễn Du",
+      "lat": 21.0180041,
+      "lng": 105.841919,
+      "name": "Hotel du Parc HaNoi",
+      "rating": 4.4
+    },
+    {
+      "address": "29 Phố Tôn Đức Thắng, Quốc Tử Giám",
+      "lat": 21.0271056,
+      "lng": 105.8340234,
+      "name": "Bánh Xèo Tôn Đức Thắng",
+      "rating": 4.3
+    },
+    {
+      "address": "11 Phố Bích Câu, Quốc Tử Giám",
+      "lat": 21.0272632,
+      "lng": 105.8322799,
+      "name": "Quán Miến Ngan",
+      "rating": 4.3
+    },
+    {
+      "address": "34G Phố Trần Phú, Điện Biên",
+      "lat": 21.0305603,
+      "lng": 105.8425177,
+      "name": "Wa Japanese Cuisine",
+      "rating": 4.1
+    },
+    {
+      "address": "46 Đường Lê Duẩn, Văn Miếu",
+      "lat": 21.028214,
+      "lng": 105.8416634,
+      "name": "Lu Beo Duck Restaurant",
+      "rating": 4.1
+    },
+    {
+      "address": "Số 5 Phố Văn Miếu, Văn Miếu",
+      "lat": 21.0297924,
+      "lng": 105.836961,
+      "name": "Nhà hàng Nhật Bản AKAARI",
+      "rating": 4.1
+    },
+    {
+      "address": "87 Phố Nguyễn Thái Học, Văn Miếu",
+      "lat": 21.0294208,
+      "lng": 105.838399,
+      "name": "KFC Nguyễn Thái Học",
+      "rating": 4
+    },
+    {
+      "address": "98 Phố Yết Kiêu, Nguyễn Du",
+      "lat": 21.0197892,
+      "lng": 105.842397,
+      "name": "Phở Chí",
+      "rating": 4
+    },
+    {
+      "address": "57 Phố Đường Thành, Cửa Đông",
+      "lat": 21.0314513,
+      "lng": 105.8471483,
+      "name": "Bách Hội Quán",
+      "rating": 4
+    },
+    {
+      "address": "61 Phố Đặng Trần Côn, Quốc Tử Giám",
+      "lat": 21.0262892,
+      "lng": 105.8327539,
+      "name": "NEM NẮM BÁCH GIA",
+      "rating": 4
+    },
+    {
+      "address": "138 Phố Tôn Đức Thắng, Quốc Tử Giám",
+      "lat": 21.0260565,
+      "lng": 105.833204,
+      "name": "Pizza Hut",
+      "rating": 4
+    },
+    {
+      "address": "8 Ngõ 88 Phố Trần Quý Cáp, Văn Chương",
+      "lat": 21.0242923,
+      "lng": 105.8394858,
+      "name": "Làng Ẩm Thực (Mường Lát)",
+      "rating": 3.9
+    },
+    {
+      "address": "118 Đường Lê Duẩn, Cửa Nam",
+      "lat": 21.0250549,
+      "lng": 105.8413373,
+      "name": "Mango Hotel",
+      "rating": 3.8
+    },
+    {
+      "address": "79 Phố Nam Ngư",
+      "lat": 21.026408,
+      "lng": 105.8416777,
+      "name": "Nhà Hàng Đức Anh",
+      "rating": 3.8
+    },
+    {
+      "address": "Chợ Dừa, 2 Phố Cát Linh, Cát Linh",
+      "lat": 21.0253958,
+      "lng": 105.8351492,
+      "name": "Hiệu Chè Cát Thành",
+      "rating": 3.8
+    },
+    {
+      "address": "92 Phố Tôn Đức Thắng, Quốc Tử Giám",
+      "lat": 21.0272053,
+      "lng": 105.8338014,
+      "name": "Vua Biển",
+      "rating": 2.9
+    },
+    {
+      "address": "67 Phố Lê Hồng Phong, Điện Biên",
+      "lat": 21.0341996,
+      "lng": 105.8326419,
+      "name": "ĐỒ DA THÁI AN",
+      "rating": "N/A"
+    },
+    {
+      "address": "11A Phố Cát Linh, Quốc Tử Giám",
+      "lat": 21.0282887,
+      "lng": 105.8329871,
+      "name": "Món ngon ngày Tết",
+      "rating": "N/A"
+    }
   ],
-  "typical_weather": "In December, Seattle experiences cool and wet weather. The average high temperature is around 46°F (8°C), while the average low temperature is around",
+  "typical_weather": "In December, Hanoi experiences cool and dry weather. The average temperature ranges from 15°C (59°F) to 20°C (68°F). It can get quite chilly in the evenings and early mornings, with temperatures dropping to around 10°C (50°F). The humidity is relatively low, and rainfall is minimal during this time of the year. However, occasional drizzles or light showers can still occur. Overall, December in Hanoi is considered to be mild and pleasant, but",
   "upcoming_weather": [
     {
-      "date": "2023-11-19",
-      "description": "Light shower rain",
-      "max_temp": 9.7,
-      "min_temp": 5.4
-    },
-    {
-      "date": "2023-11-20",
-      "description": "Broken clouds",
-      "max_temp": 8.6,
-      "min_temp": 3.4
-    },
-    {
-      "date": "2023-11-21",
-      "description": "Light shower rain",
-      "max_temp": 10.3,
-      "min_temp": 5.1
-    },
-    {
       "date": "2023-11-22",
-      "description": "Light shower rain",
-      "max_temp": 8.8,
-      "min_temp": 6.7
+      "description": "Broken clouds",
+      "max_temp": 27.5,
+      "min_temp": 18.5
     },
     {
       "date": "2023-11-23",
-      "description": "Broken clouds",
-      "max_temp": 8,
-      "min_temp": 4.2
+      "description": "Scattered clouds",
+      "max_temp": 27.9,
+      "min_temp": 18.9
     },
     {
       "date": "2023-11-24",
       "description": "Broken clouds",
-      "max_temp": 7.2,
-      "min_temp": 3
+      "max_temp": 28,
+      "min_temp": 20.5
     },
     {
       "date": "2023-11-25",
-      "description": "Few clouds",
-      "max_temp": 7.7,
-      "min_temp": 2.6
+      "description": "Scattered clouds",
+      "max_temp": 28.2,
+      "min_temp": 20.4
+    },
+    {
+      "date": "2023-11-26",
+      "description": "Broken clouds",
+      "max_temp": 28.4,
+      "min_temp": 20.2
+    },
+    {
+      "date": "2023-11-27",
+      "description": "Scattered clouds",
+      "max_temp": 30.1,
+      "min_temp": 19.9
+    },
+    {
+      "date": "2023-11-28",
+      "description": "Scattered clouds",
+      "max_temp": 29.2,
+      "min_temp": 19.7
     }
   ]
 }
