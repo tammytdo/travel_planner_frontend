@@ -26,13 +26,13 @@ function App() {
       "October",
       "November",
       "December",
-    ]
+    ],
   });
   const [cityData, setCityData] = useState({
     // city: "",
     city: "Seattle", // Seattle for testing
-    // month: "",
-    month: "Select a month", // January for testing
+    month: "",
+    // month: "Select a month", // January for testing
     lat: "",
     lon: "",
     response: {},
@@ -57,67 +57,68 @@ function App() {
   };
 
   // testing
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      if (cityData.city && cityData.month) {
-        // Instead of making an actual API call, use the imported sampleResponse
-        setCityData({
-          ...cityData,
-          response: sampleResponse,
-          lat: sampleResponse.lat,
-          lng: sampleResponse.lng,
-          attractions: sampleResponse.attractions,
-          restaurants: sampleResponse.restaurants,
-          typicalWeather: sampleResponse.typical_weather,
-          upcomingWeather: sampleResponse.upcoming_weather,
-          mapUrl: `https://www.google.com/maps/embed/v1/view?key=${apiKeyGoogle}&center=${sampleResponse.lat},${sampleResponse.lng}&zoom=15`
-        });
-      } else {
-        console.error("City and month are required");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
-
-  // Live API call
-  // const handleFormSubmit = (e) => {
+  // const handleFormSubmit = async (e) => {
   //   e.preventDefault();
-  //   fetchData();
-  // };
-
-  // Live API call
-  // const fetchData = async () => {
   //   try {
   //     if (cityData.city && cityData.month) {
-  //       const apiEndpoint = `http://localhost:5000/getCityData?user_destination=${cityData.city}&month=${cityData.month}`;
-
-  //       const response = await axios.get(apiEndpoint);
-
+  //       // Instead of making an actual API call, use the imported sampleResponse
   //       setCityData({
   //         ...cityData,
-  //        lat: sampleResponse.lat,
-  //        lng: sampleResponse.lng,
-  //         attractions: response.data.attractions,
-  //         restaurants: response.data.restaurants,
-  //         typicalWeather: response.data.typical_weather,
-  //         upcomingWeather: response.data.upcoming_weather,
-  //         mapUrl: `https://www.google.com/maps/embed/v1/view?key={process.env.GOOGLE_API_KEY}&center=${sampleResponse.lat},${sampleResponse.lng}&zoom=15`
+  //         response: sampleResponse,
+  //         lat: sampleResponse.lat,
+  //         lng: sampleResponse.lng,
+  //         attractions: sampleResponse.attractions,
+  //         restaurants: sampleResponse.restaurants,
+  //         typicalWeather: sampleResponse.typical_weather,
+  //         upcomingWeather: sampleResponse.upcoming_weather,
+  //         mapUrl: `https://www.google.com/maps/embed/v1/view?key=${apiKeyGoogle}&center=${sampleResponse.lat},${sampleResponse.lng}&zoom=15`
   //       });
   //     } else {
   //       console.error("City and month are required");
   //     }
   //   } catch (error) {
-  //     console.error("Error fetching data:", error);
+  //     console.error("Error:", error);
   //   }
   // };
+
+  // Live API call
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    fetchData();
+  };
+
+  // Live API call
+  const fetchData = async () => {
+    try {
+      if (cityData.city && cityData.month) {
+        const apiEndpoint = `http://localhost:5000/getCityData?user_destination=${cityData.city}&month=${cityData.month}`;
+
+        const response = await axios.get(apiEndpoint);
+        console.log('response lat', response.data.lat)
+
+        setCityData({
+          ...cityData,
+          lat: response.data.lat,
+          lng: response.data.lng,
+          attractions: response.data.attractions,
+          restaurants: response.data.restaurants,
+          typicalWeather: response.data.typical_weather,
+          upcomingWeather: response.data.upcoming_weather,
+          mapUrl: `https://www.google.com/maps/embed/v1/view?key=${apiKeyGoogle}&center=${response.data.lat},${response.data.lng}&zoom=15`,
+        });
+      } else {
+        console.error("City and month are required");
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   return (
     <div className="App">
       <InputForm
         city={cityData.city}
-        formData={cityData.month}
+        month={cityData.month}
         months={formData.months}
         handleInputChange={handleInputChange}
         handleFormSubmit={handleFormSubmit}
@@ -131,7 +132,7 @@ function App() {
           <AttractionCard attractions={cityData.attractions} />
           {/* edit to get top 10 restaurants within 30 miles and image */}
           <RestaurantCard restaurants={cityData.restaurants} />
-          <Map mapUrl={cityData.mapUrl}/>
+          <Map mapUrl={cityData.mapUrl} />
         </div>
       )}
     </div>
