@@ -142,7 +142,8 @@
     }
   ],
   "city": "hanoi",
-  "lat": 105.8341598,
+  "lat": 21.0277644,
+  "lng": 105.8341598,
   "restaurants": [
     {
       "address": "73 Phố Tôn Đức Thắng, Quốc Tử Giám",
@@ -285,7 +286,7 @@
       "rating": "N/A"
     }
   ],
-  "typical_weather": "In December, Hanoi experiences cool and dry weather as it is the winter season in the city. The average temperature ranges from 15°C (59°F) to 20°C (68°F). However, temperatures can drop to around 10°C (50°F) during the night. It is mostly dry during this month with low humidity and occasional light rain. It is advisable to bring warm clothing, especially for the evenings and early mornings.",
+  "typical_weather": "In December, Hanoi experiences cool and dry weather. The average temperature ranges from 15°C (59°F) to 20°C (68°F). It can get quite chilly in the evenings and early mornings, with temperatures dropping to around 10°C (50°F). The humidity is relatively low, and rainfall is minimal during this time of the year. However, occasional drizzles or light showers can still occur. Overall, December in Hanoi is considered to be mild and pleasant, but",
   "upcoming_weather": [
     {
       "date": "2023-11-22",

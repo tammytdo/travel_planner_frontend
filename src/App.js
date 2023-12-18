@@ -1,21 +1,18 @@
 import "./App.css";
 import React, { useState } from "react";
 import axios from "axios";
-
 import sampleResponse from "./sampleResponse.json"; // for testing
 import InputForm from "./components/InputForm/InputForm";
 import TypicalWeatherCard from "./components/Weather/TypicalWeatherCard";
+import Map from "./components/Map/Map";
 import WeatherCard from "./components/Weather/WeatherCard";
 import AttractionCard from "./components/Attractions/AttractionCard";
 import RestaurantCard from "./components/Restaurants/RestaurantCard";
-import Map from "./components/Map";
+
+const apiKeyGoogle = process.env.REACT_APP_GOOGLE_API_KEY;
 
 function App() {
-  const [cityData, setUserFormData] = useState({
-    // city: "",
-    // month: "",
-    city: "Seattle", // Seattle for testing
-    month: "Select a month", // January for testing
+  const [formData, setFormData] = useState({
     months: [
       "January",
       "February",
@@ -29,13 +26,22 @@ function App() {
       "October",
       "November",
       "December",
-    ],
+    ]
+  });
+  const [cityData, setCityData] = useState({
+    // city: "",
+    city: "Seattle", // Seattle for testing
+    // month: "",
+    month: "Select a month", // January for testing
+    lat: "",
+    lon: "",
     response: {},
     errorMsg: "",
     typicalWeather: "",
     attractions: [],
     restaurants: [],
     upcomingWeather: [],
+    mapUrl: "",
     // typicalWeather: sampleResponse.typical_weather, // Sample for testing
     // upcomingWeather: sampleResponse.upcoming_weather, // Sample for testing
     // attractions: sampleResponse.attractions, // Sample for testing
@@ -44,7 +50,7 @@ function App() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setUserFormData({
+    setCityData({
       ...cityData,
       [name]: value,
     });
@@ -56,13 +62,16 @@ function App() {
     try {
       if (cityData.city && cityData.month) {
         // Instead of making an actual API call, use the imported sampleResponse
-        setUserFormData({
+        setCityData({
           ...cityData,
           response: sampleResponse,
+          lat: sampleResponse.lat,
+          lng: sampleResponse.lng,
           attractions: sampleResponse.attractions,
           restaurants: sampleResponse.restaurants,
           typicalWeather: sampleResponse.typical_weather,
           upcomingWeather: sampleResponse.upcoming_weather,
+          mapUrl: `https://www.google.com/maps/embed/v1/view?key=${apiKeyGoogle}&center=${sampleResponse.lat},${sampleResponse.lng}&zoom=15`
         });
       } else {
         console.error("City and month are required");
@@ -86,12 +95,15 @@ function App() {
 
   //       const response = await axios.get(apiEndpoint);
 
-  //       setUserFormData({
+  //       setCityData({
   //         ...cityData,
+  //        lat: sampleResponse.lat,
+  //        lng: sampleResponse.lng,
   //         attractions: response.data.attractions,
   //         restaurants: response.data.restaurants,
   //         typicalWeather: response.data.typical_weather,
   //         upcomingWeather: response.data.upcoming_weather,
+  //         mapUrl: `https://www.google.com/maps/embed/v1/view?key={process.env.GOOGLE_API_KEY}&center=${sampleResponse.lat},${sampleResponse.lng}&zoom=15`
   //       });
   //     } else {
   //       console.error("City and month are required");
@@ -105,8 +117,8 @@ function App() {
     <div className="App">
       <InputForm
         city={cityData.city}
-        month={cityData.month}
-        months={cityData.months}
+        formData={cityData.month}
+        months={formData.months}
         handleInputChange={handleInputChange}
         handleFormSubmit={handleFormSubmit}
       />
@@ -115,9 +127,11 @@ function App() {
         <div>
           <TypicalWeatherCard typicalWeather={cityData.typicalWeather} />
           <WeatherCard upcomingWeather={cityData.upcomingWeather} />
+          {/* edit to get attraction description and image */}
           <AttractionCard attractions={cityData.attractions} />
+          {/* edit to get top 10 restaurants within 30 miles and image */}
           <RestaurantCard restaurants={cityData.restaurants} />
-          {/* <Map /> */}
+          <Map mapUrl={cityData.mapUrl}/>
         </div>
       )}
     </div>
